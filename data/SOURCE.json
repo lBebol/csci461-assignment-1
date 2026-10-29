@@ -1,0 +1,35 @@
+{
+  "source_url": "https://archive.ics.uci.edu/static/public/380/youtube+spam+collection.zip",
+  "source_sha256": "bd6182891adb3cfc8334b82c062176dfbebc563bf0ba07e31c2645f916865a0a",
+  "dataset_sha256": "09a4dc3adf622f3e6a43b3de986f0c9659be60138381db622ca4b5ed12e04220",
+  "rows": 1956,
+  "files": [
+    {
+      "file": "Youtube01-Psy.csv",
+      "video": "Psy",
+      "rows": 350
+    },
+    {
+      "file": "Youtube02-KatyPerry.csv",
+      "video": "KatyPerry",
+      "rows": 350
+    },
+    {
+      "file": "Youtube03-LMFAO.csv",
+      "video": "LMFAO",
+      "rows": 438
+    },
+    {
+      "file": "Youtube04-Eminem.csv",
+      "video": "Eminem",
+      "rows": 448
+    },
+    {
+      "file": "Youtube05-Shakira.csv",
+      "video": "Shakira",
+      "rows": 370
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "citation": "Alberto, T. & Lochter, J. (2015). YouTube Spam Collection. UCI. DOI:10.24432/C58885"
+}
