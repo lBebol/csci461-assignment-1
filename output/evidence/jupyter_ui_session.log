@@ -1,0 +1,81 @@
+Actual Docker evidence captured 2026-10-29T23:12:10.899178+00:00
+
+$ docker images csci461-a1 --no-trunc
+REPOSITORY   TAG        IMAGE ID                                                                  CREATED          SIZE
+csci461-a1   latest     sha256:e25d2758b22f5daf6b7d90f13c9e4949ddbc8b2498ff413fe4a641ff0627ce91   31 seconds ago   5.46GB
+csci461-a1   scaffold   sha256:d53b0491e88035a91b04facf00de621dc530d55d60770b86f42e98a28a6f7d65   23 minutes ago   5.46GB
+
+$ docker image inspect csci461-a1:latest --format 'Image={{.Id}}
+Created={{.Created}}
+WorkingDir={{.Config.WorkingDir}}
+User={{.Config.User}}'
+Image=sha256:e25d2758b22f5daf6b7d90f13c9e4949ddbc8b2498ff413fe4a641ff0627ce91
+Created=2026-10-30T01:11:39.270680368+02:00
+WorkingDir=/home/jovyan/bd-a1
+User=1000
+
+$ docker ps --filter 'name=^/csci461-a1$'
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS                   PORTS                      NAMES
+27b0282baafc   f252057b7c55   "tini -g -- start.sh…"   9 minutes ago   Up 9 minutes (healthy)   127.0.0.1:8888->8888/tcp   csci461-a1
+
+$ docker ps -a --filter name=csci461
+CONTAINER ID   IMAGE               COMMAND                  CREATED         STATUS                   PORTS                      NAMES
+8aaf76c133c5   csci461-a1:latest   "tini -g -- start.sh…"   1 second ago    Created                                             csci461-reproduce-80f2ad2b
+27b0282baafc   f252057b7c55        "tini -g -- start.sh…"   9 minutes ago   Up 9 minutes (healthy)   127.0.0.1:8888->8888/tcp   csci461-a1
+
+$ docker inspect csci461-a1 --format 'Image={{.Config.Image}}
+Status={{.State.Status}}
+Ports={{json .NetworkSettings.Ports}}
+Mounts={{json .Mounts}}'
+Image=csci461-a1:latest
+Status=running
+Ports={"8888/tcp":[{"HostIp":"127.0.0.1","HostPort":"8888"}]}
+Mounts=[{"Type":"bind","Source":"/home/bebo/Uni-stuff/CSCI461/bd-a1/notebook","Destination":"/home/jovyan/bd-a1/notebook","Mode":"","RW":true,"Propagation":"rprivate"},{"Type":"bind","Source":"/home/bebo/Uni-stuff/CSCI461/bd-a1/output","Destination":"/home/jovyan/bd-a1/output","Mode":"","RW":true,"Propagation":"rprivate"}]
+
+$ docker logs --tail 35 csci461-a1
+[I 2026-10-29 23:05:48.412 ServerApp] Connecting to kernel 37686f72-c8e3-442c-ae18-3cba9848054c.
+[I 2026-10-29 23:05:48.470 ServerApp] Starting buffering for 37686f72-c8e3-442c-ae18-3cba9848054c:fcfa4650-6415-41d1-bf60-81e33e629163
+[W 2026-10-29 23:05:48.600 LabApp] Could not determine jupyterlab build status without nodejs
+[W 2026-10-29 23:05:48.881 ServerApp] Notebook notebook/analysis.ipynb is not trusted
+[I 2026-10-29 23:05:49.221 ServerApp] Adapting from protocol version 5.3 (kernel 37686f72-c8e3-442c-ae18-3cba9848054c) to 5.4 (client).
+[I 2026-10-29 23:05:49.221 ServerApp] Connecting to kernel 37686f72-c8e3-442c-ae18-3cba9848054c.
+[I 2026-10-29 23:05:51.210 ServerApp] Saving file at /notebook/analysis.ipynb
+[I 2026-10-29 23:05:51.302 ServerApp] Kernel restarted: 37686f72-c8e3-442c-ae18-3cba9848054c
+[I 2026-10-29 23:05:51.306 ServerApp] Starting buffering for 37686f72-c8e3-442c-ae18-3cba9848054c:b5c78832-e658-4d99-ad52-20489fe76b78
+[I 2026-10-29 23:05:51.309 ServerApp] Adapting from protocol version 5.3 (kernel 37686f72-c8e3-442c-ae18-3cba9848054c) to 5.4 (client).
+[I 2026-10-29 23:05:51.309 ServerApp] Connecting to kernel 37686f72-c8e3-442c-ae18-3cba9848054c.
+[I 2026-10-29 23:05:51.310 ServerApp] Restoring connection for 37686f72-c8e3-442c-ae18-3cba9848054c:b5c78832-e658-4d99-ad52-20489fe76b78
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[I 2026-10-29 23:05:52.243 ServerApp] Saving file at /notebook/analysis.ipynb
+[I 2026-10-29 23:05:53.256 ServerApp] Saving file at /notebook/analysis.ipynb
+[I 2026-10-29 23:05:54.294 ServerApp] Saving file at /notebook/analysis.ipynb
+[I 2026-10-29 23:05:55.329 ServerApp] Saving file at /notebook/analysis.ipynb
+[I 2026-10-29 23:05:56.486 ServerApp] Starting buffering for 37686f72-c8e3-442c-ae18-3cba9848054c:b5c78832-e658-4d99-ad52-20489fe76b78
+[I 2026-10-29 23:07:56.914 ServerApp] Adapting from protocol version 5.3 (kernel 37686f72-c8e3-442c-ae18-3cba9848054c) to 5.4 (client).
+[I 2026-10-29 23:07:56.914 ServerApp] Connecting to kernel 37686f72-c8e3-442c-ae18-3cba9848054c.
+[I 2026-10-29 23:07:56.931 ServerApp] Starting buffering for 37686f72-c8e3-442c-ae18-3cba9848054c:8ce5f4f5-8d61-4b35-b443-2fb06fd3b0af
+[W 2026-10-29 23:07:57.153 LabApp] Could not determine jupyterlab build status without nodejs
+[I 2026-10-29 23:07:57.802 ServerApp] Adapting from protocol version 5.3 (kernel 37686f72-c8e3-442c-ae18-3cba9848054c) to 5.4 (client).
+[I 2026-10-29 23:07:57.803 ServerApp] Connecting to kernel 37686f72-c8e3-442c-ae18-3cba9848054c.
+[I 2026-10-29 23:07:59.492 ServerApp] Saving file at /notebook/analysis.ipynb
+[I 2026-10-29 23:08:00.509 ServerApp] Starting buffering for 37686f72-c8e3-442c-ae18-3cba9848054c:c2deb81e-5f47-421a-b09d-8563d7c32780
+[I 2026-10-29 23:10:15.322 ServerApp] Adapting from protocol version 5.3 (kernel 37686f72-c8e3-442c-ae18-3cba9848054c) to 5.4 (client).
+[I 2026-10-29 23:10:15.323 ServerApp] Connecting to kernel 37686f72-c8e3-442c-ae18-3cba9848054c.
+[I 2026-10-29 23:10:15.380 ServerApp] Starting buffering for 37686f72-c8e3-442c-ae18-3cba9848054c:0f9f6330-c24e-4a53-b48d-58a9e9b8bc7b
+[W 2026-10-29 23:10:15.400 LabApp] Could not determine jupyterlab build status without nodejs
+[I 2026-10-29 23:10:16.022 ServerApp] Adapting from protocol version 5.3 (kernel 37686f72-c8e3-442c-ae18-3cba9848054c) to 5.4 (client).
+[I 2026-10-29 23:10:16.023 ServerApp] Connecting to kernel 37686f72-c8e3-442c-ae18-3cba9848054c.
+[I 2026-10-29 23:10:21.341 ServerApp] Saving file at /notebook/analysis.ipynb
+[I 2026-10-29 23:10:22.437 ServerApp] Saving file at /notebook/analysis.ipynb
+[I 2026-10-29 23:10:23.462 ServerApp] Starting buffering for 37686f72-c8e3-442c-ae18-3cba9848054c:102b5de2-44a0-4577-8379-20e4c27f96e8
+
+$ docker run --rm csci461-a1:scaffold python -c 'import csv,json; print("Initial scaffold notebook cells:",len(json.load(open("notebook/analysis.ipynb"))["cells"])); print("Included dataset rows:",sum(1 for _ in csv.DictReader(open("data/dataset.csv"))))'
+INFO[2026-10-29 23:12:11] Entered start.sh with args: python -c import csv,json; print("Initial scaffold notebook cells:",len(json.load(open("notebook/analysis.ipynb"))["cells"])); print("Included dataset rows:",sum(1 for _ in csv.DictReader(open("data/dataset.csv"))))
+INFO[2026-10-29 23:12:11] Running hooks in: /usr/local/bin/start-notebook.d as uid: 1000 gid: 100
+INFO[2026-10-29 23:12:11] Done running hooks in: /usr/local/bin/start-notebook.d
+INFO[2026-10-29 23:12:11] Running hooks in: /usr/local/bin/before-notebook.d as uid: 1000 gid: 100
+INFO[2026-10-29 23:12:11] Sourcing shell script: /usr/local/bin/before-notebook.d/10activate-conda-env.sh
+INFO[2026-10-29 23:12:11] Done running hooks in: /usr/local/bin/before-notebook.d
+INFO[2026-10-29 23:12:11] Executing the command: python -c import csv,json; print("Initial scaffold notebook cells:",len(json.load(open("notebook/analysis.ipynb"))["cells"])); print("Included dataset rows:",sum(1 for _ in csv.DictReader(open("data/dataset.csv"))))
+Initial scaffold notebook cells: 0
+Included dataset rows: 1956

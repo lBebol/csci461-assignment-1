@@ -1,0 +1,63 @@
+Actual Docker evidence captured 2026-10-29T23:35:01.033050+00:00
+
+$ docker build --progress=plain -t csci461-a1:latest .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.02kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for quay.io/jupyter/scipy-notebook:latest
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 119B done
+#3 DONE 0.0s
+
+#4 [ 1/11] FROM quay.io/jupyter/scipy-notebook:latest@sha256:2479174ae36ec84373f3c352cb6d5801382c0aa6642e739f04bea409f6cedae1
+#4 resolve quay.io/jupyter/scipy-notebook:latest@sha256:2479174ae36ec84373f3c352cb6d5801382c0aa6642e739f04bea409f6cedae1 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 781B done
+#5 DONE 0.0s
+
+#6 [ 4/11] COPY --chown=1000:100 requirements.txt ./
+#6 CACHED
+
+#7 [ 7/11] COPY --chown=1000:100 notebook/ ./notebook/
+#7 CACHED
+
+#8 [10/11] COPY --chown=1000:100 README.md ./README.md
+#8 CACHED
+
+#9 [ 5/11] RUN python -m pip install --no-cache-dir -r requirements.txt
+#9 CACHED
+
+#10 [ 8/11] COPY --chown=1000:100 scripts/ ./scripts/
+#10 CACHED
+
+#11 [ 9/11] COPY --chown=1000:100 docs/ ./docs/
+#11 CACHED
+
+#12 [ 6/11] COPY --chown=1000:100 data/ ./data/
+#12 CACHED
+
+#13 [ 2/11] RUN mkdir -p /home/jovyan/bd-a1
+#13 CACHED
+
+#14 [ 3/11] WORKDIR /home/jovyan/bd-a1
+#14 CACHED
+
+#15 [11/11] RUN mkdir -p output/figures screenshots
+#15 CACHED
+
+#16 exporting to image
+#16 exporting layers done
+#16 exporting manifest sha256:d4a5de24a3445a3e9cbbde40b6d3241526efb9f0039384a9dde2de5325b0d9dc done
+#16 exporting config sha256:55b8ed7fddd70715f476d041c0cd52938e47ed5f7f1c01d7fe7147cbc47f5dc2 done
+#16 exporting attestation manifest sha256:c9c33cf98bb70e92025321a6aa1086d253a284f5adecb76b93a151e56756f9a2 done
+#16 exporting manifest list sha256:c1d0a833d93427d96fdcf9ec2ad261c75521d1411b0d04b60931659cf4fa227f done
+#16 naming to docker.io/library/csci461-a1:latest done
+#16 unpacking to docker.io/library/csci461-a1:latest done
+#16 DONE 0.1s

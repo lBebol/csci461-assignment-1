@@ -1,0 +1,233 @@
+{
+  "dataset_sha256": "09a4dc3adf622f3e6a43b3de986f0c9659be60138381db622ca4b5ed12e04220",
+  "random_seed": 42,
+  "executed_in_container": true,
+  "package_versions": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "seaborn": "0.13.2"
+  },
+  "raw_rows": 1956,
+  "cleaned_rows": 1945,
+  "exact_duplicates": 3,
+  "duplicate_ids": 3,
+  "repeated_text_rows_raw": 196,
+  "invalid_rows": 0,
+  "empty_cleaned_rows": 8,
+  "missing_dates_raw": 245,
+  "missing_dates_cleaned": 243,
+  "train_rows": 1556,
+  "test_rows": 389,
+  "text_group_overlap": 0,
+  "majority_baseline_accuracy": 0.5167095115681234,
+  "models": [
+    {
+      "model": "Multinomial Naive Bayes",
+      "accuracy": 0.9305912596401028,
+      "precision_spam": 0.9065420560747663,
+      "recall_spam": 0.9651741293532339,
+      "f1_spam": 0.9349397590361446,
+      "f1_macro": 0.9302797968734442
+    },
+    {
+      "model": "Logistic Regression",
+      "accuracy": 0.9511568123393316,
+      "precision_spam": 0.9595959595959596,
+      "recall_spam": 0.945273631840796,
+      "f1_spam": 0.9523809523809523,
+      "f1_macro": 0.9511245131297901
+    }
+  ],
+  "total_tokens": 30821,
+  "unique_tokens": 3654,
+  "selected_videos_for_sampling": [
+    "Eminem",
+    "Psy"
+  ],
+  "k_experiment": [
+    {
+      "k": 2,
+      "silhouette": 0.07366781093485797,
+      "inertia": 1603.650496732897,
+      "smallest_cluster": 152
+    },
+    {
+      "k": 3,
+      "silhouette": 0.08963347001683625,
+      "inertia": 1534.5996368095334,
+      "smallest_cluster": 149
+    },
+    {
+      "k": 4,
+      "silhouette": 0.10686091912675355,
+      "inertia": 1467.9198927383356,
+      "smallest_cluster": 147
+    },
+    {
+      "k": 5,
+      "silhouette": 0.11402223402705726,
+      "inertia": 1425.5074590453455,
+      "smallest_cluster": 135
+    },
+    {
+      "k": 6,
+      "silhouette": 0.12800793649581416,
+      "inertia": 1383.2520319990404,
+      "smallest_cluster": 106
+    }
+  ],
+  "selected_k": 6,
+  "silhouette": 0.12800793649581416,
+  "silhouette_sample_size": 1500,
+  "adjusted_rand_index": 0.050743161242437156,
+  "clustered_rows": 1840,
+  "unclustered_rows": 105,
+  "svd_explained_variance": 0.38579365680992644,
+  "clusters": [
+    {
+      "cluster": 0,
+      "records": 106,
+      "spam_share": 0.10377358490566038,
+      "top_terms": [
+        "views",
+        "billion",
+        "billion views",
+        "million",
+        "video",
+        "came",
+        "check views",
+        "reach",
+        "people",
+        "views million"
+      ],
+      "representatives": [
+        "to everyone joking about how he hacked to get numbertoken billion views because there s a certain amount of people or whatever he actually did buy views",
+        "the funny thing is numbertoken numbertoken numbertoken numbertoken of the views are spam bots i mean c mon numbertoken billion views bs"
+      ],
+      "interpretation": "View counts, popularity, and suspected view inflation; the representatives discuss billions of views."
+    },
+    {
+      "cluster": 1,
+      "records": 168,
+      "spam_share": 0.9940476190476191,
+      "top_terms": [
+        "subscribe",
+        "subscribe channel",
+        "channel",
+        "like",
+        "videos",
+        "guys",
+        "like subscribe",
+        "subscribe like",
+        "plz",
+        "ll"
+      ],
+      "representatives": [
+        "subscribe me",
+        "please subscribe me"
+      ],
+      "interpretation": "Direct requests for subscriptions and channel engagement; the representatives are short self-promotion."
+    },
+    {
+      "cluster": 2,
+      "records": 200,
+      "spam_share": 0.925,
+      "top_terms": [
+        "youtube",
+        "check video",
+        "video youtube",
+        "check",
+        "video",
+        "playlist youtube",
+        "check playlist",
+        "playlist",
+        "viewed",
+        "video called"
+      ],
+      "representatives": [
+        "check out this video on youtube looking for my wood pile anyone seen it hmm how bout some pie now ladies",
+        "check out this video on youtube"
+      ],
+      "interpretation": "Cross-video or playlist promotion, especially repeated check-out-this-video templates."
+    },
+    {
+      "cluster": 3,
+      "records": 1063,
+      "spam_share": 0.5023518344308561,
+      "top_terms": [
+        "like",
+        "check",
+        "channel",
+        "music",
+        "good",
+        "shakira",
+        "just",
+        "best",
+        "video",
+        "comment"
+      ],
+      "representatives": [
+        "hey i know most people don t like these kind of comments see at spam but i see as free advertising so please check out my cover of sparks fly by taylor swift it is not the best eve",
+        "hey everyone please take a moment to read this i work my ass off hoping to make it into the music industry but its hard to get people to hear you when you don t have money for adve"
+      ],
+      "interpretation": "Broad mixed music discussion and self-promotion; no single clean topic. Representatives include aspiring musicians advertising covers."
+    },
+    {
+      "cluster": 4,
+      "records": 165,
+      "spam_share": 0.15757575757575756,
+      "top_terms": [
+        "song",
+        "best song",
+        "best",
+        "like song",
+        "like",
+        "good",
+        "nice song",
+        "nice",
+        "old",
+        "good song"
+      ],
+      "representatives": [
+        "this song is special because is a song for africa and i am an african",
+        "i found out this song now"
+      ],
+      "interpretation": "Song-centered opinions, praise, and discovery, rather than explicit subscription requests."
+    },
+    {
+      "cluster": 5,
+      "records": 138,
+      "spam_share": 0.11594202898550725,
+      "top_terms": [
+        "love",
+        "love song",
+        "song",
+        "shakira",
+        "love shakira",
+        "love katy",
+        "katy",
+        "perry",
+        "katy perry",
+        "songs"
+      ],
+      "representatives": [
+        "y love you",
+        "love it"
+      ],
+      "interpretation": "Fan affection for songs and artists, including Shakira and Katy Perry."
+    }
+  ],
+  "figures": [
+    "cluster_selection.png",
+    "clusters_by_label.png",
+    "confusion_matrices.png",
+    "correlation_heatmap.png",
+    "group_comparison.png",
+    "group_top_words.png",
+    "sampling_comparison.png",
+    "word_frequency.png"
+  ]
+}

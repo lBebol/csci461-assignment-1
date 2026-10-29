@@ -1,0 +1,56 @@
+CSCI461 Assignment 1 — K-Means clustering
+Eligible records: 1840; excluded empty-vocabulary records (cluster=-1): 105
+Representation: TF-IDF -> TruncatedSVD(50) -> L2 normalization
+SVD explained variance: 0.385794
+k selection: highest Euclidean silhouette among 2..6; selected k=6
+Silhouette: 0.128008; sample size: 1500; random_state: 42
+Adjusted Rand index versus labels: 0.050743 (not used to fit or select k)
+
+ k  silhouette     inertia  smallest_cluster
+ 2    0.073668 1603.650497               152
+ 3    0.089633 1534.599637               149
+ 4    0.106861 1467.919893               147
+ 5    0.114022 1425.507459               135
+ 6    0.128008 1383.252032               106
+
+Cluster 0: 106 records; spam share=10.38%
+Top terms: views, billion, billion views, million, video, came, check views, reach, people, views million
+Interpretation: View counts, popularity, and suspected view inflation; the representatives discuss billions of views.
+Representatives: to everyone joking about how he hacked to get numbertoken billion views because there s a certain amount of people or whatever he actually did buy views | the funny thing is numbertoken numbertoken numbertoken numbertoken of the views are spam bots i mean c mon numbertoken billion views bs
+
+Cluster 1: 168 records; spam share=99.40%
+Top terms: subscribe, subscribe channel, channel, like, videos, guys, like subscribe, subscribe like, plz, ll
+Interpretation: Direct requests for subscriptions and channel engagement; the representatives are short self-promotion.
+Representatives: subscribe me | please subscribe me
+
+Cluster 2: 200 records; spam share=92.50%
+Top terms: youtube, check video, video youtube, check, video, playlist youtube, check playlist, playlist, viewed, video called
+Interpretation: Cross-video or playlist promotion, especially repeated check-out-this-video templates.
+Representatives: check out this video on youtube looking for my wood pile anyone seen it hmm how bout some pie now ladies | check out this video on youtube
+
+Cluster 3: 1063 records; spam share=50.24%
+Top terms: like, check, channel, music, good, shakira, just, best, video, comment
+Interpretation: Broad mixed music discussion and self-promotion; no single clean topic. Representatives include aspiring musicians advertising covers.
+Representatives: hey i know most people don t like these kind of comments see at spam but i see as free advertising so please check out my cover of sparks fly by taylor swift it is not the best eve | hey everyone please take a moment to read this i work my ass off hoping to make it into the music industry but its hard to get people to hear you when you don t have money for adve
+
+Cluster 4: 165 records; spam share=15.76%
+Top terms: song, best song, best, like song, like, good, nice song, nice, old, good song
+Interpretation: Song-centered opinions, praise, and discovery, rather than explicit subscription requests.
+Representatives: this song is special because is a song for africa and i am an african | i found out this song now
+
+Cluster 5: 138 records; spam share=11.59%
+Top terms: love, love song, song, shakira, love shakira, love katy, katy, perry, katy perry, songs
+Interpretation: Fan affection for songs and artists, including Shakira and Katy Perry.
+Representatives: y love you | love it
+
+Known-label counts (cluster IDs are not class IDs):
+label_name  ham  spam
+cluster              
+0            95    11
+1             1   167
+2            15   185
+3           529   534
+4           139    26
+5           122    16
+
+Interpretation of quality: silhouette near 0.13 and ARI near 0.05 indicate weak overall separation and label agreement. The largest cluster is mixed; subscription and video-promotion clusters are spam-heavy, while views/song/affection clusters are ham-heavy. k=6 is the upper boundary of the experiment, not an established global optimum.

@@ -14,6 +14,7 @@ RUN python -m pip install --no-cache-dir -r requirements.txt
 COPY --chown=${NB_UID}:${NB_GID} data/ ./data/
 COPY --chown=${NB_UID}:${NB_GID} notebook/ ./notebook/
 COPY --chown=${NB_UID}:${NB_GID} scripts/ ./scripts/
+COPY --chown=${NB_UID}:${NB_GID} docs/ ./docs/
 COPY --chown=${NB_UID}:${NB_GID} README.md ./README.md
 RUN mkdir -p output/figures screenshots
 

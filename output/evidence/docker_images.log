@@ -1,0 +1,15 @@
+Actual Docker evidence captured 2026-10-29T23:35:02.399214+00:00
+
+$ docker images csci461-a1 --no-trunc
+REPOSITORY   TAG        IMAGE ID                                                                  CREATED          SIZE
+csci461-a1   latest     sha256:c1d0a833d93427d96fdcf9ec2ad261c75521d1411b0d04b60931659cf4fa227f   37 seconds ago   5.46GB
+csci461-a1   scaffold   sha256:d53b0491e88035a91b04facf00de621dc530d55d60770b86f42e98a28a6f7d65   45 minutes ago   5.46GB
+
+$ docker image inspect csci461-a1:latest --format 'Image={{.Id}}
+Created={{.Created}}
+WorkingDir={{.Config.WorkingDir}}
+User={{.Config.User}}'
+Image=sha256:c1d0a833d93427d96fdcf9ec2ad261c75521d1411b0d04b60931659cf4fa227f
+Created=2026-10-30T01:34:25.466764087+02:00
+WorkingDir=/home/jovyan/bd-a1
+User=1000

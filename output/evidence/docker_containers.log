@@ -1,0 +1,18 @@
+Actual Docker evidence captured 2026-10-29T23:36:19.491952+00:00
+
+$ docker ps --filter 'name=^/csci461-a1$'
+CONTAINER ID   IMAGE               COMMAND                  CREATED              STATUS                        PORTS                      NAMES
+ab822c674556   csci461-a1:latest   "tini -g -- start.sh…"   About a minute ago   Up About a minute (healthy)   127.0.0.1:8888->8888/tcp   csci461-a1
+
+$ docker ps -a --filter name=csci461
+CONTAINER ID   IMAGE               COMMAND                  CREATED              STATUS                        PORTS                      NAMES
+ab822c674556   csci461-a1:latest   "tini -g -- start.sh…"   About a minute ago   Up About a minute (healthy)   127.0.0.1:8888->8888/tcp   csci461-a1
+
+$ docker inspect csci461-a1 --format 'Image={{.Config.Image}}
+Status={{.State.Status}}
+Ports={{json .NetworkSettings.Ports}}
+Mounts={{json .Mounts}}'
+Image=csci461-a1:latest
+Status=running
+Ports={"8888/tcp":[{"HostIp":"127.0.0.1","HostPort":"8888"}]}
+Mounts=[{"Type":"bind","Source":"/home/bebo/Uni-stuff/CSCI461/bd-a1/notebook","Destination":"/home/jovyan/bd-a1/notebook","Mode":"","RW":true,"Propagation":"rprivate"},{"Type":"bind","Source":"/home/bebo/Uni-stuff/CSCI461/bd-a1/output","Destination":"/home/jovyan/bd-a1/output","Mode":"","RW":true,"Propagation":"rprivate"}]

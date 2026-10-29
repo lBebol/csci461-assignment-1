@@ -1,0 +1,43 @@
+CSCI461 Assignment 1 — supervised classification
+Dataset SHA-256: 09a4dc3adf622f3e6a43b3de986f0c9659be60138381db622ca4b5ed12e04220
+Seed: 42; train rows: 1556; test rows: 389
+Split: first seeded StratifiedGroupKFold(5) fold; groups = cleaned_text
+Overlapping cleaned-text groups: 0; TF-IDF fitted on training rows only.
+TF-IDF: unigrams+bigrams, min_df=2, max_features=20000, sublinear_tf=True
+MultinomialNB alpha=1.0; LogisticRegression max_iter=2000, random_state=42
+Majority baseline accuracy: 0.516710
+
+                         accuracy  precision_spam  recall_spam  f1_spam  f1_macro
+model                                                                            
+Multinomial Naive Bayes  0.930591        0.906542     0.965174 0.934940  0.930280
+Logistic Regression      0.951157        0.959596     0.945274 0.952381  0.951125
+
+Multinomial Naive Bayes
+              precision    recall  f1-score   support
+
+         ham     0.9600    0.8936    0.9256       188
+        spam     0.9065    0.9652    0.9349       201
+
+    accuracy                         0.9306       389
+   macro avg     0.9333    0.9294    0.9303       389
+weighted avg     0.9324    0.9306    0.9304       389
+
+Confusion matrix (rows actual, columns predicted; ham, spam):
+[[168  20]
+ [  7 194]]
+
+Logistic Regression
+              precision    recall  f1-score   support
+
+         ham     0.9424    0.9574    0.9499       188
+        spam     0.9596    0.9453    0.9524       201
+
+    accuracy                         0.9512       389
+   macro avg     0.9510    0.9514    0.9511       389
+weighted avg     0.9513    0.9512    0.9512       389
+
+Confusion matrix (rows actual, columns predicted; ham, spam):
+[[180   8]
+ [ 11 190]]
+
+Limitations: single holdout; old, curated, five-video corpus; near-duplicate and author overlap may remain.

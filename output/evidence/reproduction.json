@@ -1,0 +1,33 @@
+{
+  "verified_at_utc": "2026-10-29T23:35:16.597010+00:00",
+  "image": "csci461-a1:latest",
+  "image_id": "sha256:c1d0a833d93427d96fdcf9ec2ad261c75521d1411b0d04b60931659cf4fa227f",
+  "network": "none",
+  "only_host_mount": "fresh empty output directory",
+  "container_exit_code": 0,
+  "artifact_validation": "passed",
+  "reference_comparison": "9 files byte-identical",
+  "container_removed": true,
+  "output_persistence": "passed",
+  "independent_teammate_verification": false,
+  "artifact_sha256": {
+    "analysis.executed.ipynb": "3904be1d3af79d7a0c5f365a6c394b7b22f718cfa1f8aa79989c5ddd50b89f6d",
+    "cleaned_data.csv": "f7c1e17bd0cfe011a7f2f2b40365ca81748e98a9616c59ec2da15798a77893f7",
+    "cluster_summary.txt": "da7b7911eb07ae8f6f8c34861219086719eabbcbab60d9148a296f47c6d32eb3",
+    "figures/cluster_selection.png": "8a3897f00e66a96a21f156684655ef13339784bf56ee6b2d6abe9a59457c6ab5",
+    "figures/clusters_by_label.png": "2f7d296575ae3d2bced4e7b97d74b632685d6ca36622c4b252741fda97122b9f",
+    "figures/confusion_matrices.png": "348fc9f1158b64d50480a451967a0dfd2bba8e3016c1661e6c4313fc3788cb0a",
+    "figures/correlation_heatmap.png": "7c2e553a1bec6510758d2eb9df6d202215c1c2b1ef66601497a57845560e158b",
+    "figures/group_comparison.png": "0713128966f44451f8ea0044da4d10f452029119582508ee37149837f8ed2482",
+    "figures/group_top_words.png": "9e54eb4c6805555ae8d3f84d5c3ef1aaca6a0a55e48f4a46bf09a2bbdaa1f6a4",
+    "figures/sampling_comparison.png": "05d271464b1636494cf3211e47c7c752c73267055c38de8f6d13bde3cd1b3421",
+    "figures/word_frequency.png": "fde6e1d2f259739db02523c6b359276302ca54c17bc4a9a6e0017e2186a24bec",
+    "k_experiment.csv": "401835bfb6e11a8b2e85a7ebc922e0bf5ada9101bd8f09598708be04a357325a",
+    "model_comparison.csv": "2d1aa4c217f98fd20bce5e7d92abc59040175ca0892da670c3cafa088ed427be",
+    "model_metrics.txt": "d792d12e36da5389dfecf90d997db179f1d1f00bb5143ea43d45cb86e92f94d4",
+    "run_summary.json": "427cab21df065d3af4a037885260d98ba418b77a9350153c3e751200b7061ffe",
+    "sampling_distributions.csv": "c00846fdc8bec57ef3d61f6411351e185ff64095944b167883b8131a88174ba9",
+    "test_predictions.csv": "49a490f183ee5ef869ead7d045215d1b66de01bd6399540bd9eb948e40707348",
+    "text_insights.md": "c8d22304d0270cfa5c64696701c896e2e3ab90a7702845e93c723bcbc464b906"
+  }
+}

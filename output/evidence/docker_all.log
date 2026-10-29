@@ -1,0 +1,80 @@
+Actual Docker evidence captured 2026-10-29T23:36:19.130887+00:00
+
+$ docker images csci461-a1 --no-trunc
+REPOSITORY   TAG        IMAGE ID                                                                  CREATED              SIZE
+csci461-a1   latest     sha256:c1d0a833d93427d96fdcf9ec2ad261c75521d1411b0d04b60931659cf4fa227f   About a minute ago   5.46GB
+csci461-a1   scaffold   sha256:d53b0491e88035a91b04facf00de621dc530d55d60770b86f42e98a28a6f7d65   47 minutes ago       5.46GB
+
+$ docker image inspect csci461-a1:latest --format 'Image={{.Id}}
+Created={{.Created}}
+WorkingDir={{.Config.WorkingDir}}
+User={{.Config.User}}'
+Image=sha256:c1d0a833d93427d96fdcf9ec2ad261c75521d1411b0d04b60931659cf4fa227f
+Created=2026-10-30T01:34:25.466764087+02:00
+WorkingDir=/home/jovyan/bd-a1
+User=1000
+
+$ docker ps --filter 'name=^/csci461-a1$'
+CONTAINER ID   IMAGE               COMMAND                  CREATED              STATUS                        PORTS                      NAMES
+ab822c674556   csci461-a1:latest   "tini -g -- start.sh…"   About a minute ago   Up About a minute (healthy)   127.0.0.1:8888->8888/tcp   csci461-a1
+
+$ docker ps -a --filter name=csci461
+CONTAINER ID   IMAGE               COMMAND                  CREATED              STATUS                        PORTS                      NAMES
+ab822c674556   csci461-a1:latest   "tini -g -- start.sh…"   About a minute ago   Up About a minute (healthy)   127.0.0.1:8888->8888/tcp   csci461-a1
+
+$ docker inspect csci461-a1 --format 'Image={{.Config.Image}}
+Status={{.State.Status}}
+Ports={{json .NetworkSettings.Ports}}
+Mounts={{json .Mounts}}'
+Image=csci461-a1:latest
+Status=running
+Ports={"8888/tcp":[{"HostIp":"127.0.0.1","HostPort":"8888"}]}
+Mounts=[{"Type":"bind","Source":"/home/bebo/Uni-stuff/CSCI461/bd-a1/notebook","Destination":"/home/jovyan/bd-a1/notebook","Mode":"","RW":true,"Propagation":"rprivate"},{"Type":"bind","Source":"/home/bebo/Uni-stuff/CSCI461/bd-a1/output","Destination":"/home/jovyan/bd-a1/output","Mode":"","RW":true,"Propagation":"rprivate"}]
+
+$ docker logs --tail 35 csci461-a1
+[W 2026-10-29 23:35:13.231 ServerApp] A `_jupyter_server_extension_points` function was not found in nbclassic. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2026-10-29 23:35:13.233 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2026-10-29 23:35:13.234 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[I 2026-10-29 23:35:13.236 ServerApp] jupyterlab | extension was successfully linked.
+[I 2026-10-29 23:35:13.236 ServerApp] jupyterlab_git | extension was successfully linked.
+[I 2026-10-29 23:35:13.237 ServerApp] nbclassic | extension was successfully linked.
+[I 2026-10-29 23:35:13.237 ServerApp] nbdime | extension was successfully linked.
+[I 2026-10-29 23:35:13.238 ServerApp] notebook | extension was successfully linked.
+[I 2026-10-29 23:35:13.239 ServerApp] Writing Jupyter server cookie secret to /home/jovyan/.local/share/jupyter/runtime/jupyter_cookie_secret
+[I 2026-10-29 23:35:13.256 ServerApp] notebook_shim | extension was successfully linked.
+[W 2026-10-29 23:35:13.265 ServerApp] WARNING: The Jupyter server is listening on all IP addresses and not using encryption. This is not recommended.
+[I 2026-10-29 23:35:13.265 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2026-10-29 23:35:13.266 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2026-10-29 23:35:13.267 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2026-10-29 23:35:13.268 LabApp] JupyterLab extension loaded from /opt/conda/lib/python3.13/site-packages/jupyterlab
+[I 2026-10-29 23:35:13.268 LabApp] JupyterLab application directory is /opt/conda/share/jupyter/lab
+[I 2026-10-29 23:35:13.268 LabApp] Extension Manager is 'pypi'.
+[I 2026-10-29 23:35:13.285 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2026-10-29 23:35:13.288 ServerApp] jupyterlab_git | extension was successfully loaded.
+[I 2026-10-29 23:35:13.289 ServerApp] nbclassic | extension was successfully loaded.
+[I 2026-10-29 23:35:13.313 ServerApp] nbdime | extension was successfully loaded.
+[I 2026-10-29 23:35:13.315 ServerApp] notebook | extension was successfully loaded.
+[I 2026-10-29 23:35:13.315 ServerApp] Serving notebooks from local directory: /home/jovyan/bd-a1
+[I 2026-10-29 23:35:13.315 ServerApp] Jupyter Server 2.21.1 is running at:
+[I 2026-10-29 23:35:13.315 ServerApp] http://localhost:8888/lab?token=[REDACTED]
+[I 2026-10-29 23:35:13.315 ServerApp]     http://127.0.0.1:8888/lab?token=[REDACTED]
+[I 2026-10-29 23:35:13.315 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2026-10-29 23:35:13.317 ServerApp] 
+    
+    To access the server, open this file in a browser:
+        file:///home/jovyan/.local/share/jupyter/runtime/jpserver-7-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/lab?token=[REDACTED]
+        http://127.0.0.1:8888/lab?token=[REDACTED]
+[I 2026-10-29 23:35:13.324 ServerApp] Skipped non-installed server(s): basedpyright, bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyrefly, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+
+$ docker run --rm csci461-a1:scaffold python -c 'import csv,json; print("Initial scaffold notebook cells:",len(json.load(open("notebook/analysis.ipynb"))["cells"])); print("Included dataset rows:",sum(1 for _ in csv.DictReader(open("data/dataset.csv"))))'
+INFO[2026-10-29 23:36:19] Entered start.sh with args: python -c import csv,json; print("Initial scaffold notebook cells:",len(json.load(open("notebook/analysis.ipynb"))["cells"])); print("Included dataset rows:",sum(1 for _ in csv.DictReader(open("data/dataset.csv"))))
+INFO[2026-10-29 23:36:19] Running hooks in: /usr/local/bin/start-notebook.d as uid: 1000 gid: 100
+INFO[2026-10-29 23:36:19] Done running hooks in: /usr/local/bin/start-notebook.d
+INFO[2026-10-29 23:36:19] Running hooks in: /usr/local/bin/before-notebook.d as uid: 1000 gid: 100
+INFO[2026-10-29 23:36:19] Sourcing shell script: /usr/local/bin/before-notebook.d/10activate-conda-env.sh
+INFO[2026-10-29 23:36:19] Done running hooks in: /usr/local/bin/before-notebook.d
+INFO[2026-10-29 23:36:19] Executing the command: python -c import csv,json; print("Initial scaffold notebook cells:",len(json.load(open("notebook/analysis.ipynb"))["cells"])); print("Included dataset rows:",sum(1 for _ in csv.DictReader(open("data/dataset.csv"))))
+Initial scaffold notebook cells: 0
+Included dataset rows: 1956
