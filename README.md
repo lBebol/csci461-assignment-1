@@ -7,6 +7,7 @@ An end-to-end, reproducible study of spam and ham comments using approved datase
 text analysis, two TF-IDF classifiers, and K-Means, entirely inside Docker.
 
 - **Repository:** https://github.com/lBebol/csci461-assignment-1
+- **Docker Hub:** https://hub.docker.com/r/lbebol/csci461-assignment-1
 - **Notebook:** [`notebook/analysis.ipynb`](notebook/analysis.ipynb), including executed outputs
 - **Rubric map:** [`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md)
 - **Team discussion guide:** [`docs/DISCUSSION_GUIDE.md`](docs/DISCUSSION_GUIDE.md)
@@ -122,8 +123,8 @@ quay.io/jupyter/scipy-notebook@sha256:2479174ae36ec84373f3c352cb6d5801382c0aa664
 ```
 
 The mandated `latest` tag can change. Pinned analysis packages and the recorded
-base digest document this run; the published final image digest, once available,
-identifies the exact distributed environment.
+base digest document this run. The Docker Hub publication record in section 6
+identifies the exact distributed image by its content digest.
 
 ## 3. Start JupyterLab and run the notebook
 
@@ -223,22 +224,46 @@ reuses the existing container.
 
 ## 6. Docker Hub distribution
 
-**Publication status: awaiting Docker Hub authentication.** The local image is
-built and the workflow is implemented; a pushed image is not yet claimed.
+**Published and verified:** public registry access, an author-machine pull, and
+fresh offline execution all passed. Nine result files matched the reference run
+byte-for-byte, and output remained intact after the verification container was removed.
 
-Authenticate, set your actual username, and tag/push the final custom image:
+**Repository:** [`lbebol/csci461-assignment-1`](https://hub.docker.com/r/lbebol/csci461-assignment-1)
+
+**Tag:** `fall2026-v1` · **Platform:** `linux/amd64`
+
+**Immutable image reference:**
+
+```text
+lbebol/csci461-assignment-1@sha256:5ef03a8810a51647dabfa79a9c3c548d4f1b5afa3738d677796afaea98994c88
+```
+
+The exact published digest and registry verification are recorded in
+[`output/evidence/dockerhub_publication.json`](output/evidence/dockerhub_publication.json),
+alongside the actual [`docker push` log](output/evidence/dockerhub_push.log).
+
+Pull and execute the distributed image, with no host notebook or dataset mount:
+
+```bash
+docker pull lbebol/csci461-assignment-1:fall2026-v1
+mkdir -p output
+docker run --rm --network none --no-healthcheck \
+  --mount type=bind,src="$(pwd)/output",dst=/home/jovyan/bd-a1/output \
+  lbebol/csci461-assignment-1:fall2026-v1 python scripts/run_analysis.py
+```
+
+For an exact immutable image, use the `pull_by_digest` reference in the publication
+record instead of the tag. Maintainer commands to tag and publish a new image:
 
 ```bash
 docker login
-export DOCKERHUB_USER=your_actual_dockerhub_username
-docker tag csci461-a1:latest "$DOCKERHUB_USER/csci461-assignment-1:fall2026-v1"
-docker push "$DOCKERHUB_USER/csci461-assignment-1:fall2026-v1"
-docker image inspect "$DOCKERHUB_USER/csci461-assignment-1:fall2026-v1" \
+docker tag csci461-a1:latest lbebol/csci461-assignment-1:fall2026-v1
+docker push lbebol/csci461-assignment-1:fall2026-v1
+docker image inspect lbebol/csci461-assignment-1:fall2026-v1 \
   --format '{{json .RepoDigests}}'
 ```
 
-Record the actual repository, tag, and digest here after a successful push. Docker
-Hub is the **registry**; `username/csci461-assignment-1` is the **repository**;
+Docker Hub is the **registry**; `lbebol/csci461-assignment-1` is the **repository**;
 `fall2026-v1` is the **tag**. A content digest identifies the exact image.
 
 **Another teammate must pull the published image and run it successfully.** Exact

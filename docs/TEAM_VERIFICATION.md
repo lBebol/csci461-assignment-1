@@ -6,21 +6,25 @@ Student names/IDs have not been supplied; add the actual roster before submissio
 
 ## Required independent teammate check — PENDING
 
-The author-machine offline reproduction is recorded in
+The published image was successfully pulled and reproduced offline on the author's
+machine. Its exact digest and public-access check are recorded in
+[`dockerhub_publication.json`](../output/evidence/dockerhub_publication.json),
+and the full execution/persistence check is recorded in
 [`output/evidence/reproduction.json`](../output/evidence/reproduction.json).
 It does **not** satisfy the requirement that another teammate pull the image.
 
-After Docker Hub publication, another teammate must run the following on their
-own machine, using the actual image reference recorded in the README:
+Another teammate must run the following on their own machine. The image reference
+is `lbebol/csci461-assignment-1:fall2026-v1`; its exact immutable digest is recorded
+in [`dockerhub_publication.json`](../output/evidence/dockerhub_publication.json).
 
 ```bash
-docker pull DOCKERHUB_USERNAME/csci461-assignment-1:fall2026-v1
+docker pull lbebol/csci461-assignment-1:fall2026-v1
 mkdir -p output
 docker run --rm --network none --no-healthcheck \
   --mount type=bind,src="$(pwd)/output",dst=/home/jovyan/bd-a1/output \
-  DOCKERHUB_USERNAME/csci461-assignment-1:fall2026-v1 \
+  lbebol/csci461-assignment-1:fall2026-v1 \
   python scripts/run_analysis.py
-docker image inspect DOCKERHUB_USERNAME/csci461-assignment-1:fall2026-v1 \
+docker image inspect lbebol/csci461-assignment-1:fall2026-v1 \
   --format '{{json .RepoDigests}}'
 ```
 
@@ -30,7 +34,7 @@ Record real evidence here:
 |---|---|
 | Teammate name / student ID | Pending |
 | Date and machine / OS | Pending |
-| Pulled image tag and digest | Pending publication and pull |
+| Pulled image tag and digest | Image reference is above; teammate's pull confirmation is pending |
 | Notebook completed without errors | Not yet independently verified |
 | Output files persisted on the host | Not yet independently verified |
 | Screenshots / terminal log | Add the teammate's actual evidence |

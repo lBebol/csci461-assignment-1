@@ -1,0 +1,61 @@
+$ docker build --progress=plain -t csci461-a1:latest .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.02kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for quay.io/jupyter/scipy-notebook:latest
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 119B done
+#3 DONE 0.0s
+
+#4 [ 1/11] FROM quay.io/jupyter/scipy-notebook:latest@sha256:2479174ae36ec84373f3c352cb6d5801382c0aa6642e739f04bea409f6cedae1
+#4 resolve quay.io/jupyter/scipy-notebook:latest@sha256:2479174ae36ec84373f3c352cb6d5801382c0aa6642e739f04bea409f6cedae1 done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 19.33kB done
+#5 DONE 0.0s
+
+#6 [ 4/11] COPY --chown=1000:100 requirements.txt ./
+#6 CACHED
+
+#7 [ 2/11] RUN mkdir -p /home/jovyan/bd-a1
+#7 CACHED
+
+#8 [ 3/11] WORKDIR /home/jovyan/bd-a1
+#8 CACHED
+
+#9 [ 6/11] COPY --chown=1000:100 data/ ./data/
+#9 CACHED
+
+#10 [ 5/11] RUN python -m pip install --no-cache-dir -r requirements.txt
+#10 CACHED
+
+#11 [ 7/11] COPY --chown=1000:100 notebook/ ./notebook/
+#11 CACHED
+
+#12 [ 8/11] COPY --chown=1000:100 scripts/ ./scripts/
+#12 CACHED
+
+#13 [ 9/11] COPY --chown=1000:100 docs/ ./docs/
+#13 DONE 0.0s
+
+#14 [10/11] COPY --chown=1000:100 README.md ./README.md
+#14 DONE 0.0s
+
+#15 [11/11] RUN mkdir -p output/figures screenshots
+#15 DONE 0.2s
+
+#16 exporting to image
+#16 exporting layers 0.1s done
+#16 exporting manifest sha256:d61e30f0ed7049bc12047921633cc54977297b47c0edc0fbb2dec52a49191b26 done
+#16 exporting config sha256:6d9ab5ac85d8fca293e57d18656e427dece2231691afaaa783b052f151b9a15c done
+#16 exporting attestation manifest sha256:0b3f26350dc0dedbfec4d6f3f23e481e6bbc9e15f8c9183ff3f825de3334ff68 done
+#16 exporting manifest list sha256:5ef03a8810a51647dabfa79a9c3c548d4f1b5afa3738d677796afaea98994c88 done
+#16 naming to docker.io/library/csci461-a1:latest done
+#16 unpacking to docker.io/library/csci461-a1:latest 0.0s done
+#16 DONE 0.1s

@@ -1,0 +1,6 @@
+Author-machine registry pull 2026-10-30T09:22:52.989707+00:00
+$ docker pull lbebol/csci461-assignment-1:fall2026-v1
+fall2026-v1: Pulling from lbebol/csci461-assignment-1
+Digest: sha256:5ef03a8810a51647dabfa79a9c3c548d4f1b5afa3738d677796afaea98994c88
+Status: Image is up to date for lbebol/csci461-assignment-1:fall2026-v1
+docker.io/lbebol/csci461-assignment-1:fall2026-v1

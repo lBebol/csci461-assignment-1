@@ -1,14 +1,14 @@
-$ docker create --name csci461-reproduce-36ca4734 --network none --no-healthcheck --mount type=bind,src=/tmp/opencode/csci461-reproduction-kscoprak/output,dst=/home/jovyan/bd-a1/output csci461-a1:latest python scripts/run_analysis.py
-bffd90d6628500f364bf10a34c7fd7053856aa33689b0affc47a89510de60ae5
+$ docker create --name csci461-reproduce-13e01392 --network none --no-healthcheck --mount type=bind,src=/tmp/opencode/csci461-reproduction-toee_l_q/output,dst=/home/jovyan/bd-a1/output lbebol/csci461-assignment-1@sha256:5ef03a8810a51647dabfa79a9c3c548d4f1b5afa3738d677796afaea98994c88 python scripts/run_analysis.py
+bd01c5deda792818079f92944fab4410ccd023cf7a734760d8bd564dc9bb8364
 
-$ docker start -a csci461-reproduce-36ca4734
-INFO[2026-10-29 23:35:09] Entered start.sh with args: python scripts/run_analysis.py
-INFO[2026-10-29 23:35:09] Running hooks in: /usr/local/bin/start-notebook.d as uid: 1000 gid: 100
-INFO[2026-10-29 23:35:09] Done running hooks in: /usr/local/bin/start-notebook.d
-INFO[2026-10-29 23:35:09] Running hooks in: /usr/local/bin/before-notebook.d as uid: 1000 gid: 100
-INFO[2026-10-29 23:35:09] Sourcing shell script: /usr/local/bin/before-notebook.d/10activate-conda-env.sh
-INFO[2026-10-29 23:35:09] Done running hooks in: /usr/local/bin/before-notebook.d
-INFO[2026-10-29 23:35:09] Executing the command: python scripts/run_analysis.py
+$ docker start -a csci461-reproduce-13e01392
+INFO[2026-10-30 09:22:54] Entered start.sh with args: python scripts/run_analysis.py
+INFO[2026-10-30 09:22:54] Running hooks in: /usr/local/bin/start-notebook.d as uid: 1000 gid: 100
+INFO[2026-10-30 09:22:54] Done running hooks in: /usr/local/bin/start-notebook.d
+INFO[2026-10-30 09:22:54] Running hooks in: /usr/local/bin/before-notebook.d as uid: 1000 gid: 100
+INFO[2026-10-30 09:22:54] Sourcing shell script: /usr/local/bin/before-notebook.d/10activate-conda-env.sh
+INFO[2026-10-30 09:22:55] Done running hooks in: /usr/local/bin/before-notebook.d
+INFO[2026-10-30 09:22:55] Executing the command: python scripts/run_analysis.py
 [NbConvertApp] Converting notebook /home/jovyan/bd-a1/notebook/analysis.ipynb to notebook
 [IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
 [NbConvertApp] Writing 480748 bytes to /home/jovyan/bd-a1/output/analysis.executed.ipynb
@@ -16,17 +16,17 @@ PASS: 1945 rows; original text preserved; no repeated-text leakage;
       389 held-out predictions match reported metrics; clusters and exports reconcile;
       15 sequentially executed code cells; required figures and written insights exist.
 
-$ docker inspect csci461-reproduce-36ca4734 --format {{json .State}}
-{"Status":"exited","Running":false,"Paused":false,"Restarting":false,"OOMKilled":false,"Dead":false,"Pid":0,"ExitCode":0,"Error":"","StartedAt":"2026-10-29T23:35:09.271084452Z","FinishedAt":"2026-10-29T23:35:16.419587256Z"}
+$ docker inspect csci461-reproduce-13e01392 --format {{json .State}}
+{"Status":"exited","Running":false,"Paused":false,"Restarting":false,"OOMKilled":false,"Dead":false,"Pid":0,"ExitCode":0,"Error":"","StartedAt":"2026-10-30T09:22:54.577754874Z","FinishedAt":"2026-10-30T09:23:01.637471479Z"}
 
-$ docker ps -a --filter name=^/csci461-reproduce-36ca4734$
-CONTAINER ID   IMAGE               COMMAND                  CREATED         STATUS                              PORTS     NAMES
-bffd90d66285   csci461-a1:latest   "tini -g -- start.sh…"   7 seconds ago   Exited (0) Less than a second ago             csci461-reproduce-36ca4734
+$ docker ps -a --filter name=^/csci461-reproduce-13e01392$
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS                              PORTS     NAMES
+bd01c5deda79   5ef03a8810a5   "tini -g -- start.sh…"   7 seconds ago   Exited (0) Less than a second ago             csci461-reproduce-13e01392
 
-$ docker image inspect csci461-a1:latest --format {{.Id}}
-sha256:c1d0a833d93427d96fdcf9ec2ad261c75521d1411b0d04b60931659cf4fa227f
+$ docker image inspect lbebol/csci461-assignment-1@sha256:5ef03a8810a51647dabfa79a9c3c548d4f1b5afa3738d677796afaea98994c88 --format {{.Id}}
+sha256:5ef03a8810a51647dabfa79a9c3c548d4f1b5afa3738d677796afaea98994c88
 
-$ docker rm csci461-reproduce-36ca4734
-csci461-reproduce-36ca4734
+$ docker rm csci461-reproduce-13e01392
+csci461-reproduce-13e01392
 
 PASS: exports validated; 9 artifacts byte-identical; outputs persist after container removal.

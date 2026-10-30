@@ -1,0 +1,17 @@
+{
+  "published_at_utc": "2026-10-30T08:22:10.908820+00:00",
+  "image": "lbebol/csci461-assignment-1:fall2026-v1",
+  "repository_url": "https://hub.docker.com/r/lbebol/csci461-assignment-1",
+  "tag": "fall2026-v1",
+  "digest": "sha256:5ef03a8810a51647dabfa79a9c3c548d4f1b5afa3738d677796afaea98994c88",
+  "pull_by_digest": "lbebol/csci461-assignment-1@sha256:5ef03a8810a51647dabfa79a9c3c548d4f1b5afa3738d677796afaea98994c88",
+  "local_image_id": "sha256:5ef03a8810a51647dabfa79a9c3c548d4f1b5afa3738d677796afaea98994c88",
+  "platform": "linux/amd64",
+  "push_succeeded": true,
+  "anonymous_registry_manifest_verified": true,
+  "independent_teammate_verification": false,
+  "author_machine_pull_verified_at_utc": "2026-10-30T09:23:01.771943+00:00",
+  "author_machine_pull_succeeded": true,
+  "author_machine_reproduction": "passed: nine deterministic artifacts match; output persists after container removal",
+  "reproduction_evidence": "output/evidence/reproduction.json"
+}

@@ -1,7 +1,7 @@
 {
-  "verified_at_utc": "2026-10-29T23:35:16.597010+00:00",
-  "image": "csci461-a1:latest",
-  "image_id": "sha256:c1d0a833d93427d96fdcf9ec2ad261c75521d1411b0d04b60931659cf4fa227f",
+  "verified_at_utc": "2026-10-30T09:23:01.765861+00:00",
+  "image": "lbebol/csci461-assignment-1@sha256:5ef03a8810a51647dabfa79a9c3c548d4f1b5afa3738d677796afaea98994c88",
+  "image_id": "sha256:5ef03a8810a51647dabfa79a9c3c548d4f1b5afa3738d677796afaea98994c88",
   "network": "none",
   "only_host_mount": "fresh empty output directory",
   "container_exit_code": 0,
@@ -11,7 +11,7 @@
   "output_persistence": "passed",
   "independent_teammate_verification": false,
   "artifact_sha256": {
-    "analysis.executed.ipynb": "3904be1d3af79d7a0c5f365a6c394b7b22f718cfa1f8aa79989c5ddd50b89f6d",
+    "analysis.executed.ipynb": "4fc9912607b0b4b65a41556eea46ebd0ef17e400b49be50a2ede9dcc17ae6b20",
     "cleaned_data.csv": "f7c1e17bd0cfe011a7f2f2b40365ca81748e98a9616c59ec2da15798a77893f7",
     "cluster_summary.txt": "da7b7911eb07ae8f6f8c34861219086719eabbcbab60d9148a296f47c6d32eb3",
     "figures/cluster_selection.png": "8a3897f00e66a96a21f156684655ef13339784bf56ee6b2d6abe9a59457c6ab5",

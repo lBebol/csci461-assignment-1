@@ -14,7 +14,7 @@ Source: CSCI461 Assignment 1, Fall 2026, all three pages.
 | Image/container and port explanation | README Docker concepts; discussion guide |
 | Persistent output bind mount | README run command; reproduction checks hashes after container removal |
 | images, ps, ps -a, logs, inspect | `output/evidence/docker_all.log`; screenshots |
-| Docker Hub tag and push | Publication status in README; requires account authentication |
+| Docker Hub tag and push | `lbebol/csci461-assignment-1:fall2026-v1`; publication record and push log under `output/evidence/` |
 | Different teammate pulls and runs | Explicitly pending actual teammate evidence in `TEAM_VERIFICATION.md` |
 | head, shape, columns, dtypes, info, describe; row/column meanings | Notebook §2 |
 | Missing values, duplicates, justified treatment, before/after shape | §3 |
